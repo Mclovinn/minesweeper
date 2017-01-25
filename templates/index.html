@@ -7,30 +7,24 @@
         <link rel="stylesheet" href="static/css/bootstrap-theme.min.css" >
 
         <!-- Scripts -->
+        <script src="static/js/jquery.min.js"></script>
         <script src="static/js/bootstrap.min.js"></script>
     </head>
 
     <body>
         <div class="jumbotron">
-          <h1>Minesweeper</h1>
-          <div id="game_board">
-              <div class="btn-group">
-                <button type="button" class="btn btn-default"></button>
-                <button type="button" class="btn btn-default"></button>
-                <button type="button" class="btn btn-default"></button>
-              </div>
-              <br>
-              <div class="btn-group">
-                <button type="button" class="btn btn-default"></button>
-                <button type="button" class="btn btn-default"></button>
-                <button type="button" class="btn btn-default"></button>
-              </div>
-              <br>
-              <div class="btn-group">
-                <button type="button" class="btn btn-default"></button>
-                <button type="button" class="btn btn-default"></button>
-                <button type="button" class="btn btn-default"></button>
-              </div>
+            <h1 align="center">Minesweeper</h1>
+            <div align="center" id="game_board">
+                {% for row in minetable.rows %}
+                <div class="btn-group btn-group-lg" role="group">
+                    {% for button in row.buttons %}
+                    <button type="button" class="btn btn-large btn-default" id="{{ button.position }}">
+                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                    </button>
+                    {% endfor %}
+                </div>
+                <br>
+                {% endfor %}
             </div>
         </div>
     </body>
