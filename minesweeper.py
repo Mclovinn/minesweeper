@@ -12,7 +12,7 @@ minesweeper = MineSweeper()
 def hello_world():
     return render_template('index.html', minetable=minesweeper.minestable)
 
-@app.route('/pepito', methods=['POST'])
+@app.route('/play', methods=['POST'])
 def verify_position():
 
     position_split = request.form['position'].split('_')
