@@ -25,3 +25,20 @@ def step_impl(context):
     for x in range(1, 4):
         for y in range(1, 4):
             assert browser.find_by_id('position_{}_{}'.format(x, y))
+
+@when(u'press button with position {position}')
+def step_impl(context, position):
+    position_id = 'position_' + position
+    browser.find_by_id(position_id)[0].click()
+
+@then(u'position {position} is showed')
+def step_impl(context, position):
+    assert 'NOT_BOMB' in browser.html
+
+@then(u'NOT_BOMB is showed')
+def step_impl(context):
+    assert 'NOT_BOMB' in browser.html
+
+@then(u'BOMB is showed')
+def step_impl(context):
+    assert 'BOMB' in browser.html
