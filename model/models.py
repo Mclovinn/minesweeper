@@ -1,6 +1,8 @@
-class MineSweeper:
-    bombs = [(1,1)]
-    size = [(3,3)]
+from model.board import Board
 
-    def has_mine(self, position):
-        return position in MineSweeper.bombs
+class MineSweeper:
+
+    def validate_position(self, position):
+        board = Board()
+        board.markPosition(position)
+        return board.get_board()
