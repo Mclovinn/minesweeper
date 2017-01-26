@@ -18,14 +18,23 @@
                 {% for row in minetable.rows %}
                 <div class="btn-group btn-group-lg" role="group">
                     {% for button in row.buttons %}
-                    <button type="button" class="btn btn-large btn-default" id="{{ button.position }}">
-                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                    </button>
+                    <form  action="pepito" method="post" style="display:inline">
+                        <input type="hidden" name="position" value="{{ button.position }}">
+                        <button type="submit" class="btn btn-large btn-default" id="{{ button.position }}">
+                            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                        </button>
+                    </form>
                     {% endfor %}
                 </div>
                 <br>
                 {% endfor %}
             </div>
+            {% if message == 'NOT_BOMB' %}
+                <h3 style="color:green;" align="center">{{message}}</h1>
+            {% elif message == 'BOMB' %}
+                <h3 style="color:red;" align="center">{{message}}</h1>
+                <h3 style="color:red;" align="center">Loser!</h1>
+            {% endif %}
         </div>
     </body>
 </html>

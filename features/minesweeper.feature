@@ -13,3 +13,13 @@ Scenario: Initial Scenario
 Scenario: 3x3 table Scenario
     Given Initial page
     Then The 3x3 game board is showed
+
+Scenario: Not bomb scenario
+    Given Initial page
+    When press button with position 1_2
+    Then NOT_BOMB is showed
+
+Scenario: Not bomb scenario
+    Given Initial page
+    When press button with position 1_1
+    Then BOMB is showed
