@@ -10,7 +10,7 @@ minesweeper = MineSweeper()
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html', minetable=minesweeper.minestable)
+    return render_template('index.html', minetable=minesweeper.get_board())
 
 @app.route('/play', methods=['POST'])
 def verify_position():
