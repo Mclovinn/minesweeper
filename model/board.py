@@ -40,7 +40,6 @@ class Board:
         rows = list()
         for row in self._rows:
             new_row = list()
-            print (row)
             for col in row:
                 new_row.append((self._board[col], self._build_id(col)))
             rows.append(row)

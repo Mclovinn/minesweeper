@@ -28,12 +28,7 @@ def step_impl(context):
 
 @when(u'press button with position {position}')
 def step_impl(context, position):
-    position_id = 'position_' + position
-    browser.find_by_id(position_id)[0].click()
-
-@then(u'position {position} is showed')
-def step_impl(context, position):
-    assert 'NOT_BOMB' in browser.html
+    browser.find_by_id(position)[0].click()
 
 @then(u'NOT_BOMB is showed')
 def step_impl(context):

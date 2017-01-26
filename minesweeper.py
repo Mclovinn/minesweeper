@@ -14,14 +14,10 @@ def hello_world():
 
 @app.route('/play', methods=['POST'])
 def verify_position():
-
-    position_split = request.form['position'].split('_')
-    position = (int(position_split[1]),int(position_split[2]))
-
+    position_list = list(request.form['position'])
+    position = (int(position_list[1]),int(position_list[4]))
     board = minesweeper.validate_position(position)
-    return render_template('index.html', minetable=minesweeper.minestable, message=board[position])
-
-
+    return render_template('index.html', minetable=minesweeper.get_board(), message=board)
 
 if __name__ == "__main__":
     app.run()
