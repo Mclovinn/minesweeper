@@ -17,10 +17,10 @@
             <div align="center" id="game_board">
                 {% for row in minetable.rows %}
                 <div class="btn-group btn-group-lg" role="group">
-                    {% for button in row.buttons %}
-                    <form  action="pepito" method="post" style="display:inline">
-                        <input type="hidden" name="position" value="{{ button.position }}">
-                        <button type="submit" class="btn btn-large btn-default" id="{{ button.position }}">
+                    {% for button in row %}
+                    <form  action="play" method="post" style="display:inline">
+                        <input type="hidden" name="position" value="{{ button }}">
+                        <button type="submit" class="btn btn-large btn-default" id="{{ button }}">
                             <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                         </button>
                     </form>

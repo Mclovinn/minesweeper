@@ -16,10 +16,10 @@ Scenario: 3x3 table Scenario
 
 Scenario: Not bomb scenario
     Given Initial page
-    When press button with position 1_2
+    When press button with position (1, 2)
     Then NOT_BOMB is showed
 
 Scenario: Not bomb scenario
     Given Initial page
-    When press button with position 1_1
+    When press button with position (1, 1)
     Then BOMB is showed
